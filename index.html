@@ -161,6 +161,29 @@
             background-color: #0056b3;
         }
 
+        .download-btn {
+            display: block;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px auto;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .download-btn i {
+            margin-right: 5px;
+        }
+
+
         @media print {
             body {
                 margin: 0;
@@ -302,14 +325,30 @@
         <h2>NB Live React Classes</h2>
         <p class="name" id="scoreName"></p>
         <p id="scoreText"></p>
-        <button class="print-btn" onclick="printScoreCard()">
-            <i class="fas fa-print"></i> Print Score Card
-        </button>
     </div>
+    <button class="print-btn" onclick="printScoreCard()">
+        <i class="fas fa-print"></i> Print Score Card
+    </button>
+    <button class="download-btn" onclick="downloadScoreCardAsImage()">
+        <i class="fas fa-download"></i> Download as Image
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
     <script>
         function printScoreCard() {
             window.print();
+        }
+
+        function downloadScoreCardAsImage() {
+            html2canvas(document.querySelector("#scoreCard"), {
+                onrendered: function(canvas) {
+                    var link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'scorecard.png';
+                    link.click();
+                }
+            });
         }
 
         function submitQuiz() {
