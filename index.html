@@ -108,6 +108,42 @@
             font-family: 'Courier New', Courier, monospace;
             color: #c7254e;
         }
+
+        /* Score Card Styling */
+        .score-card {
+            display: none;
+            background-color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .score-card h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .score-card p {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
+        }
+        .score-card .name {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        @media print {
+            .submit-btn, .header {
+                display: none;
+            }
+            .score-card {
+                display: block;
+                page-break-after: always;
+            }
+        }
     </style>
 </head>
 <body>
@@ -118,6 +154,12 @@
         </div>
 
         <h1>JavaScript Operators Quiz</h1>
+
+        <!-- User Name Input -->
+        <div class="question">
+            <h3>Enter your name:</h3>
+            <input type="text" id="userName" placeholder="Your Name" style="width: 100%; padding: 10px; margin-top: 10px;">
+        </div>
 
         <!-- Multiple Choice Questions -->
         <div class="question" id="q1">
@@ -220,40 +262,53 @@
         function submitQuiz() {
             // Define correct answers
             const correctAnswers = {
-                q1: 'c', // 3. `let x = 3; let y = ++x;` -> `x = 4`
-                q2: 'b', // 4. `let a = 7; let b = a++;` -> `b = 7`
-                q3: 'a', // 5. `let num = 10; let result = num-- + --num;` -> `19`
-                q4: 'a', // Pre-increment increases before using in expression
-                q5: 'a', // `let x = 5; console.log(x--, x);` -> `5 4`
-                q6: 'b', // False, `x++` increases after it is used in the expression
-                q7: 'a', // True, post-increment/decrement occurs after use
-                q8: '15', // `let x = 10; x += 5;` -> `x = 15`
-                q9: '12', // `let a = 5; a = a++ + ++a;` -> `a = 12`
-                q10: ''   // Any answer acceptable for explanation, scoring handled separately
+                q1: 'c',
+                q2: 'b',
+                q3: 'a',
+                q4: 'a',
+                q5: 'a',
+                q6: 'b',
+                q7: 'a',
+                q8: '15',
+                q9: '12',
+                q10: ''
             };
 
             let score = 0;
+            const userName = document.getElementById('userName').value.trim();
+            const scoreCard = document.getElementById('scoreCard');
+            const scoreName = document.getElementById('scoreName');
+            const scoreText = document.getElementById('scoreText');
+
+            if (userName === '') {
+                alert('Please enter your name.');
+                return;
+            }
 
             // Check each question
             for (let key in correctAnswers) {
                 const userAnswer = document.querySelector(`[name="${key}"]:checked`)?.value;
                 const questionDiv = document.getElementById(key);
 
-                // Highlight correct and incorrect answers
-                if (userAnswer && (userAnswer == correctAnswers[key])) {
-                    score++;
-                    questionDiv.classList.add('correct-answer');
+                // Remove previous highlighting
+                questionDiv.classList.remove('correct-answer', 'incorrect-answer');
+
+                if (userAnswer && (userAnswer === correctAnswers[key])) {
+                    if (userAnswer !== '') {
+                        score++;
+                        questionDiv.classList.add('correct-answer');
+                    }
                 } else {
-                    questionDiv.classList.add('incorrect-answer');
+                    if (userAnswer !== '' || key === 'q10') {
+                        questionDiv.classList.add('incorrect-answer');
+                    }
                 }
 
-                // Show correct answer for multiple choice
                 if (document.querySelector(`[name="${key}"]:checked`)) {
                     const correctOption = document.querySelector(`[name="${key}"][value="${correctAnswers[key]}"]`);
-                    correctOption.parentNode.style.fontWeight = 'bold';
-                    correctOption.parentNode.style.color = 'green';
+                    correctOption?.parentNode.style.fontWeight = 'bold';
+                    correctOption?.parentNode.style.color = 'green';
                 } else if (document.querySelector(`[name="${key}"]`)) {
-                    // Show correct answer for fill-in-the-blank or text area
                     const inputField = document.querySelector(`[name="${key}"]`);
                     if (inputField.value.trim() !== correctAnswers[key] && key !== 'q10') {
                         inputField.style.borderColor = 'red';
@@ -266,6 +321,11 @@
             // Display the result
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `Your score: ${score} / 10`;
+
+            // Show the score card
+            scoreCard.style.display = 'block';
+            scoreName.textContent = `Name: ${userName}`;
+            scoreText.textContent = `You scored ${score} out of 10.`;
         }
     </script>
 </body>
