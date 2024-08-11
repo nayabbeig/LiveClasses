@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operators Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            color: #444;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin: 5px 0;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px auto 0;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>JavaScript Operators Quiz</h1>
+
+        <!-- Multiple Choice Questions -->
+        <div class="question">
+            <h3>1. What is the value of `x` after executing the following JavaScript code?</h3>
+            <pre><code>let x = 3;<br>let y = ++x;</code></pre>
+            <ul class="answers">
+                <li><input type="radio" name="q1" value="a"> a) `x = 2`</li>
+                <li><input type="radio" name="q1" value="b"> b) `x = 3`</li>
+                <li><input type="radio" name="q1" value="c"> c) `x = 4`</li>
+                <li><input type="radio" name="q1" value="d"> d) `x = 5`</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>2. What will be the value of `b` after the following code is executed?</h3>
+            <pre><code>let a = 7;<br>let b = a++;</code></pre>
+            <ul class="answers">
+                <li><input type="radio" name="q2" value="a"> a) `b = 6`</li>
+                <li><input type="radio" name="q2" value="b"> b) `b = 7`</li>
+                <li><input type="radio" name="q2" value="c"> c) `b = 8`</li>
+                <li><input type="radio" name="q2" value="d"> d) `b = undefined`</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>3. Consider the following code:</h3>
+            <pre><code>let num = 10;<br>let result = num-- + --num;</code></pre>
+            <ul class="answers">
+                <li><input type="radio" name="q3" value="a"> a) `19`</li>
+                <li><input type="radio" name="q3" value="b"> b) `20`</li>
+                <li><input type="radio" name="q3" value="c"> c) `21`</li>
+                <li><input type="radio" name="q3" value="d"> d) `22`</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>4. Which of the following statements about the pre-increment operator in JavaScript is correct?</h3>
+            <ul class="answers">
+                <li><input type="radio" name="q4" value="a"> a) It increases the variable's value before using it in the expression.</li>
+                <li><input type="radio" name="q4" value="b"> b) It decreases the variable's value before using it in the expression.</li>
+                <li><input type="radio" name="q4" value="c"> c) It increases the variable's value after using it in the expression.</li>
+                <li><input type="radio" name="q4" value="d"> d) It decreases the variable's value after using it in the expression.</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>5. What will be the output of the following JavaScript code?</h3>
+            <pre><code>let x = 5;<br>console.log(x--, x);</code></pre>
+            <ul class="answers">
+                <li><input type="radio" name="q5" value="a"> a) `5 4`</li>
+                <li><input type="radio" name="q5" value="b"> b) `4 5`</li>
+                <li><input type="radio" name="q5" value="c"> c) `4 4`</li>
+                <li><input type="radio" name="q5" value="d"> d) `5 5`</li>
+            </ul>
+        </div>
+
+        <!-- True or False -->
+        <div class="question">
+            <h3>6. In JavaScript, the expression `x++` increases the value of `x` before it is used in an expression.</h3>
+            <ul class="answers">
+                <li><input type="radio" name="q6" value="a"> a) True</li>
+                <li><input type="radio" name="q6" value="b"> b) False</li>
+            </ul>
+        </div>
+
+        <div class="question">
+            <h3>7. The value of a variable is always incremented or decremented after it is used in an expression when the post-increment or post-decrement operator is used.</h3>
+            <ul class="answers">
+                <li><input type="radio" name="q7" value="a"> a) True</li>
+                <li><input type="radio" name="q7" value="b"> b) False</li>
+            </ul>
+        </div>
+
+        <!-- Fill in the Blanks -->
+        <div class="question">
+            <h3>8. In the statement `let z = y--;`, the variable `z` will hold the value of `y` before the decrement, which is ___ .</h3>
+        </div>
+
+        <div class="question">
+            <h3>9. If `let a = 5;` and the statement `a = a++ + ++a;` is executed, the final value of `a` will be ___ .</h3>
+        </div>
+
+        <!-- Short Answer -->
+        <div class="question">
+            <h3>10. What is the difference between the pre-increment (`++x`) and post-increment (`x++`) operators in JavaScript?</h3>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="submit-btn">Submit Quiz</button>
+    </div>
+</body>
+</html>
