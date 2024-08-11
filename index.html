@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Operators Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
         .quiz-container {
             background-color: #fff;
@@ -135,14 +137,50 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+
+        /* Print Button Styling */
+        .print-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            transition: background-color 0.3s;
+        }
+
+        .print-btn i {
+            font-size: 18px; /* Adjust icon size */
+        }
+
+        .print-btn:hover {
+            background-color: #0056b3;
+        }
+
         @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+            }
             .quiz-container {
                 display: none;
             }
 
             .score-card {
                 display: block;
-                page-break-after: always;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border: 2px solid #333; /* Nice border for the score card */
+                border-radius: 10px; /* Rounded corners */
+                background-color: #fff; /* Background color for printing */
+                text-align: center;
             }
 
             .print-btn {
@@ -264,7 +302,9 @@
         <h2>NB Live React Classes</h2>
         <p class="name" id="scoreName"></p>
         <p id="scoreText"></p>
-        <button class="print-btn" onclick="printScoreCard()">Print Score Card</button>
+        <button class="print-btn" onclick="printScoreCard()">
+            <i class="fas fa-print"></i> Print Score Card
+        </button>
     </div>
 
     <script>
