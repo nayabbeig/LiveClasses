@@ -236,11 +236,11 @@
 
             // Check each question
             for (let key in correctAnswers) {
-                const userAnswer = document.querySelector(`[name="${key}"]:checked`)?.value || document.querySelector(`[name="${key}"]`)?.value.trim();
+                const userAnswer = document.querySelector(`[name="${key}"]:checked`)?.value;
                 const questionDiv = document.getElementById(key);
 
                 // Highlight correct and incorrect answers
-                if (userAnswer == correctAnswers[key]) {
+                if (userAnswer && (userAnswer == correctAnswers[key])) {
                     score++;
                     questionDiv.classList.add('correct-answer');
                 } else {
