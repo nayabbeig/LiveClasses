@@ -136,12 +136,17 @@
             font-size: 1.5em;
         }
         @media print {
-            .submit-btn, .header {
+            .quiz-container {
                 display: none;
             }
+
             .score-card {
                 display: block;
                 page-break-after: always;
+            }
+
+            .print-btn {
+                display: none; /* Hide the print button when printing */
             }
         }
     </style>
@@ -253,19 +258,20 @@
 
         <!-- Submit Button -->
         <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
-
-        <!-- Score Card -->
-        <div class="score-card" id="scoreCard">
-            <h2>NB Live React Classes</h2>
-            <p class="name" id="scoreName"></p>
-            <p id="scoreText"></p>
-        </div>
-
-        <!-- Result Display -->
-        <div class="result" id="result"></div>
+    </div>
+    <!-- Score Card -->
+    <div class="score-card" id="scoreCard">
+        <h2>NB Live React Classes</h2>
+        <p class="name" id="scoreName"></p>
+        <p id="scoreText"></p>
+        <button class="print-btn" onclick="printScoreCard()">Print Score Card</button>
     </div>
 
     <script>
+        function printScoreCard() {
+            window.print();
+        }
+
         function submitQuiz() {
             // Define correct answers
             const correctAnswers = {
@@ -321,9 +327,6 @@
                 }
             }
 
-            // Display the result
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `Your score: ${score} / 10`;
             // Show the score card
             scoreCard.style.display = 'block';
             scoreName.textContent = `Name: ${userName}`;
