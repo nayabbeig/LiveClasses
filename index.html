@@ -275,6 +275,15 @@
             };
 
             let score = 0;
+            const userName = document.getElementById('userName').value.trim();
+            const scoreCard = document.getElementById('scoreCard');
+            const scoreName = document.getElementById('scoreName');
+            const scoreText = document.getElementById('scoreText');
+
+            if (userName === '') {
+                alert('Please enter your name.');
+                return;
+            }
 
             // Check each question
             for (let key in correctAnswers) {
@@ -308,6 +317,10 @@
             // Display the result
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `Your score: ${score} / 10`;
+            // Show the score card
+            scoreCard.style.display = 'block';
+            scoreName.textContent = `Name: ${userName}`;
+            scoreText.textContent = `You scored ${score} out of 10.`;
         }
     </script>
 </body>
