@@ -329,6 +329,9 @@
         <h2>NB Live React Classes</h2>
         <p class="name" id="scoreName"></p>
         <p id="scoreText"></p>
+        <hr/>
+        <p>Answer Q10: </p>
+        <p id="subjective"></p>
     </div>
     <div id="button-control">
         <button class="download-btn" onclick="downloadScoreCardAsImage()">
@@ -419,6 +422,7 @@
             buttonControl.style.display = 'block';
             scoreName.textContent = `Name: ${userName}`;
             scoreText.textContent = `You scored ${score} out of 10.`;
+            document.getElementById("subjective").innerText = document.querySelector(`[name="q10"]`)?.value
         }
     </script>
 </body>
