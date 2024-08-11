@@ -386,7 +386,7 @@
 
             // Check each question
             for (let key in correctAnswers) {
-                const input = document.querySelector(`[name="q7"]`);
+                const input = document.querySelector(`[name="${key}"]`);
                 const userAnswer = input.type === "radio" ? document.querySelector(`[name="${key}"]:checked`)?.value : input?.value;
                 const questionDiv = document.getElementById(key);
 
