@@ -182,6 +182,10 @@
         .download-btn i {
             margin-right: 5px;
         }
+        .button-control {
+            display: none;
+            text-align: center;
+        }
 
 
         @media print {
@@ -326,12 +330,14 @@
         <p class="name" id="scoreName"></p>
         <p id="scoreText"></p>
     </div>
-    <button class="print-btn" onclick="printScoreCard()">
-        <i class="fas fa-print"></i> Print Score Card
-    </button>
-    <button class="download-btn" onclick="downloadScoreCardAsImage()">
-        <i class="fas fa-download"></i> Download as Image
-    </button>
+    <div id="button-control">
+        <button class="print-btn" onclick="printScoreCard()">
+            <i class="fas fa-print"></i> Print Score Card
+        </button>
+        <button class="download-btn" onclick="downloadScoreCardAsImage()">
+            <i class="fas fa-download"></i> Download as Image
+        </button>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
@@ -371,6 +377,7 @@
             const scoreCard = document.getElementById('scoreCard');
             const scoreName = document.getElementById('scoreName');
             const scoreText = document.getElementById('scoreText');
+            const buttonControl = document.getElementById('button-control');
 
             if (userName === '') {
                 alert('Please enter your name.');
@@ -408,6 +415,7 @@
 
             // Show the score card
             scoreCard.style.display = 'block';
+            buttonControl.style.display = 'block';
             scoreName.textContent = `Name: ${userName}`;
             scoreText.textContent = `You scored ${score} out of 10.`;
         }
