@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Operators Quiz</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -114,31 +114,60 @@
         /* Score Card Styling */
         .score-card {
             display: none;
-            background-color: #fff;
-            border: 2px solid #007bff;
-            border-radius: 8px;
-            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #7d8d9e;
             max-width: 600px;
             margin: 20px auto;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .score-card .score-section {
+        .score-card .user-section {
             padding: 5px;
             margin: 5px;
-            background-color: #d3f9dc;
-            border-radius: 5px;
+            background: #f1f2f3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .score-card .info-section h3 {
-            font-size: 2em;
-            color: #007bff;
-            margin-bottom: 20px;
+        .score-card .user-section p {
+            padding: 5px;
+            margin: 5px;
+            font-weight: bold;
         }
 
-        .score-card .info-setion p {
-            font-size: 12px;
+        .score-card .user-section div {
+            font-size: 10px;
+            width: 200px;
+            font-weight: bold;
+        }
+
+        .score-card h3 {
+            font-size: 1em;
+            color: white;
+            background-color: #406d8b;
+            padding: 5px 50px;
+            margin: 0;
+        }
+
+        .score-card h1 {
+            margin-bottom: 5px;
+            margin-top: 10px;
+            font-size: 46px;
+            color: #527a1e;
+        }
+
+        .score-card .contact {
+            padding: 5px;
+            background: #161616;
+        }
+
+        .score-card .contact a {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 5px;
         }
 
         .score-card .score-section  p {
@@ -209,12 +238,15 @@
 
         /* Style for the WhatsApp link */
         .whatsapp-link {
-            color: #25D366; /* WhatsApp green */
+            color: #25D366;
             text-decoration: none;
-            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
         }
 
         .whatsapp-link:hover {
@@ -225,10 +257,13 @@
         .youtube-link {
             color: #FF0000; /* YouTube red */
             text-decoration: none;
-            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
         }
 
         .youtube-link:hover {
@@ -258,8 +293,7 @@
                 padding: 20px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 border: 2px solid #333; /* Nice border for the score card */
-                border-radius: 10px; /* Rounded corners */
-                background-color: #fff; /* Background color for printing */
+                background-color: #f9f9f9; /* Background color for printing */
                 text-align: center;
             }
 
@@ -277,12 +311,6 @@
         </div>
 
         <h1>JavaScript Operators Quiz</h1>
-
-        <!-- User Name Input -->
-        <div class="question">
-            <h3>Enter your name:</h3>
-            <input type="text" id="userName" placeholder="Your Name" style="width: 100%; padding: 10px; margin-top: 10px;">
-        </div>
 
         <!-- Multiple Choice Questions -->
         <div class="question" id="q1">
@@ -374,35 +402,44 @@
             <textarea name="q10" placeholder="Enter your explanation here" style="width: 100%; height: 100px; padding: 10px; margin-top: 10px;"></textarea>
         </div>
 
+        <!-- User Name Input -->
+        <div class="question">
+            <h3>Enter your name:</h3>
+            <input type="text" id="userName" placeholder="Your Name" style="width: 100%; padding: 10px; margin-top: 10px;">
+        </div>
+
         <!-- Submit Button -->
         <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
     </div>
     <!-- Score Card -->
     <div class="score-card" id="scoreCard">
-        <div class="score-section">  
+        <h3>NB Live React Classes</h3>
+        <h1 id="scoreText"></h1>
+        <p style="
+            margin: 0;
+            color: gray;
+            font-weight: bold;
+        ">Out of 10 Marks</p>
+        <div class="user-section">  
             <p class="name" id="scoreName"></p>
-            <p id="scoreText"></p>
-            <hr/>
-            <p>Answer Q10: </p>
-            <p id="subjective"></p>
+            <div>
+                <p>Answer Q10: </p>
+                <p id="subjective"></p>
+            </div>
         </div>
         <div class="info-section">
-            <h3>NB Live React Classes</h3>
-            <p>
-                <strong>Contact Us:</strong><br>
+            <div class="contact">
                 <a href="https://wa.me/7223944224" target="_blank" class="whatsapp-link">
                     <i class="fab fa-whatsapp"></i> +91 7223944224
                 </a>
-            </p>
-            <p>
-                <strong>Follow Us:</strong><br>
                 <a href="https://www.youtube.com/@codinghuman8185" target="_blank" class="youtube-link">
-                    <i class="fab fa-youtube"></i> NB Live React Classes</a>
-            </p>
+                    <i class="fab fa-youtube"></i> NB Live React Classes
+                </a>
+            </div>
         </div>
     </div>
     <div id="button-control">
-        <button class="download-btn" onclick="downloadScoreCardAsImage()">
+        <button class="download-btn" id="downloadScorecard">
             <i class="fas fa-download"></i> Download as Image
         </button>
         <button class="print-btn" onclick="printScoreCard()">
@@ -412,21 +449,74 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
     <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add your event listener for the download button here
+            const downloadButton = document.querySelector('#downloadScorecard'); // Replace with your button's ID or class
+            downloadButton.addEventListener('click', downloadScoreCardAsImage);
+        });
+
         function printScoreCard() {
             window.print();
         }
 
         function downloadScoreCardAsImage() {
+    const scoreCard = document.querySelector("#scoreCard");
+    const originalStyles = {
+        position: scoreCard.style.position,
+        display: scoreCard.style.display,
+        width: scoreCard.style.width,
+        height: scoreCard.style.height,
+        overflow: scoreCard.style.overflow
+    };
+
+    // Adjust styles to ensure proper capturing
+    scoreCard.style.position = 'absolute';
+    scoreCard.style.display = 'block';
+    scoreCard.style.width = `${scoreCard.scrollWidth}px`;
+    scoreCard.style.height = `${scoreCard.scrollHeight}px`;
+    scoreCard.style.overflow = 'visible';
+
+    domtoimage.toPng(scoreCard, {
+        bgcolor: 'white',
+        width: scoreCard.scrollWidth,
+        height: scoreCard.scrollHeight
+    }).then(function (dataUrl) {
+        // Restore original styles
+        scoreCard.style.position = originalStyles.position;
+        scoreCard.style.display = originalStyles.display;
+        scoreCard.style.width = originalStyles.width;
+        scoreCard.style.height = originalStyles.height;
+        scoreCard.style.overflow = originalStyles.overflow;
+
+        // Create a download link
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'scorecard.png';
+        link.click();
+    }).catch(function (error) {
+        console.error('Error generating image:', error);
+    });
+}
+
+function downloadScoreCardAsImage() {
+    document.querySelector("#scoreCard").style.zoom = 10;
             html2canvas(document.querySelector("#scoreCard"), {
+                scale: 5,
+                quality: 10,
                 onrendered: function(canvas) {
                     var link = document.createElement('a');
                     link.href = canvas.toDataURL('image/png');
                     link.download = 'scorecard.png';
                     link.click();
+                    document.querySelector("#scoreCard").style.zoom = 1;
                 }
             });
         }
+
 
         function submitQuiz() {
             // Define correct answers
@@ -488,9 +578,11 @@
             // Show the score card
             scoreCard.style.display = 'block';
             buttonControl.style.display = 'block';
-            scoreName.textContent = `Name: ${userName}`;
-            scoreText.textContent = `You scored ${score} out of 10.`;
+            scoreName.textContent = userName;
+            scoreText.textContent = score;
             document.getElementById("subjective").innerText = document.querySelector(`[name="q10"]`)?.value
+
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     </script>
 </body>
