@@ -305,13 +305,13 @@
 
         <!-- Fill in the Blanks with Text Input -->
         <div class="question" id="q8">
-            <h3>8. If `let x = 10;` and `x += 5;`, the value of `x` will be ___ .</h3>
+            <h3>8. If `let x = 11;` and `x += 5;`, the value of `x` will be ___ .</h3>
             <input type="text" name="q8" placeholder="Enter your answer" style="width: 100%; padding: 10px; margin-top: 10px;">
         </div>
 
         <!-- Fill in the Blanks with Text Input -->
         <div class="question" id="q9">
-            <h3>9. After executing `let a = 5; a = a++ + ++a;`, the value of `a` will be ___ .</h3>
+            <h3>9. After executing `let a = 6; a = a++ + ++a;`, the value of `a` will be ___ .</h3>
             <input type="text" name="q9" placeholder="Enter your answer" style="width: 100%; padding: 10px; margin-top: 10px;">
         </div>
 
@@ -370,8 +370,8 @@
                 q5: 'a', // `let x = 5; console.log(x--, x);` -> `5 4`
                 q6: 'b', // False, `x++` increases after it is used in the expression
                 q7: 'a', // True, post-increment/decrement occurs after use
-                q8: '15', // `let x = 10; x += 5;` -> `x = 15`
-                q9: '12', // `let a = 5; a = a++ + ++a;` -> `a = 12`
+                q8: '16', // `let x = 10; x += 5;` -> `x = 15`
+                q9: '13', // `let a = 5; a = a++ + ++a;` -> `a = 12`
                 q10: ''   // Any answer acceptable for explanation, scoring handled separately
             };
 
@@ -394,7 +394,7 @@
                 const questionDiv = document.getElementById(key);
 
                 // Highlight correct and incorrect answers
-                if (userAnswer && (userAnswer == correctAnswers[key])) {
+                if (userAnswer && (key=='q10' || (userAnswer == correctAnswers[key]))) {
                     score++;
                     questionDiv.classList.add('correct-answer');
                 } else {
