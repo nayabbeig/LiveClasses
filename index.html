@@ -362,7 +362,7 @@
             const correctAnswers = {
                 q1: 'c', // 3. `let x = 3; let y = ++x;` -> `x = 4`
                 q2: 'b', // 4. `let a = 7; let b = a++;` -> `b = 7`
-                q3: 'a', // 5. `let num = 10; let result = num-- + --num;` -> `19`
+                q3: 'c', // 5. `let num = 10; let result = num-- + --num;` -> `18`
                 q4: 'a', // Pre-increment increases before using in expression
                 q5: 'a', // `let x = 5; console.log(x--, x);` -> `5 4`
                 q6: 'b', // False, `x++` increases after it is used in the expression
@@ -386,7 +386,8 @@
 
             // Check each question
             for (let key in correctAnswers) {
-                const userAnswer = document.querySelector(`[name="${key}"]:checked`)?.value;
+                const input = document.querySelector(`[name="q7"]`);
+                const userAnswer = input.type === "radio" ? document.querySelector(`[name="${key}"]:checked`)?.value : input?.value;
                 const questionDiv = document.getElementById(key);
 
                 // Highlight correct and incorrect answers
