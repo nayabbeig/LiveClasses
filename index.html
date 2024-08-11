@@ -123,20 +123,35 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .score-card h2 {
+
+        .score-card info-section {
+            padding: 5px;
+            margin: 5px;
+            background-color: #28a745;
+            border-radius: 5px;
+        }
+
+        .score-card info-section h3 {
             font-size: 2em;
             color: #007bff;
             margin-bottom: 20px;
         }
-        .score-card p {
+
+        .score-card info-setion p {
+            font-size: 12px;
+        }
+
+        .score-card score-section  p {
             font-size: 1.2em;
             color: #333;
             margin: 10px 0;
         }
-        .score-card .name {
+        .score-card score-section .name {
             font-weight: bold;
             font-size: 1.5em;
         }
+
+        .
 
         /* Print Button Styling */
         .print-btn {
@@ -360,23 +375,27 @@
     </div>
     <!-- Score Card -->
     <div class="score-card" id="scoreCard">
-        <h2>NB Live React Classes</h2>
-        <p>
-            <strong>Contact Us:</strong><br>
-            <a href="https://wa.me/7223944224" target="_blank" class="whatsapp-link">
-                <i class="fab fa-whatsapp"></i> +91 7223944224
-            </a>
-        </p>
-        <p>
-            <strong>Follow Us:</strong><br>
-            <a href="https://www.youtube.com/@codinghuman8185" target="_blank" class="youtube-link">
-                <i class="fab fa-youtube"></i> NB Live React Classes</a>
-        </p>
-        <p class="name" id="scoreName"></p>
-        <p id="scoreText"></p>
-        <hr/>
-        <p>Answer Q10: </p>
-        <p id="subjective"></p>
+        <div id="score-section">  
+            <p class="name" id="scoreName"></p>
+            <p id="scoreText"></p>
+            <hr/>
+            <p>Answer Q10: </p>
+            <p id="subjective"></p>
+        </div>
+        <div id="info-section">
+            <h3>NB Live React Classes</h3>
+            <p>
+                <strong>Contact Us:</strong><br>
+                <a href="https://wa.me/7223944224" target="_blank" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> +91 7223944224
+                </a>
+            </p>
+            <p>
+                <strong>Follow Us:</strong><br>
+                <a href="https://www.youtube.com/@codinghuman8185" target="_blank" class="youtube-link">
+                    <i class="fab fa-youtube"></i> NB Live React Classes</a>
+            </p>
+        </div>
     </div>
     <div id="button-control">
         <button class="download-btn" onclick="downloadScoreCardAsImage()">
