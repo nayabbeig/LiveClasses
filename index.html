@@ -18,7 +18,7 @@
         .quiz-container {
             background-color: #fff;
             padding: 20px;
-            margin-top: 1300px;
+            margin-top: 1500px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
@@ -78,6 +78,20 @@
             font-size: 18px;
             color: #333;
         }
+        .correct-answer {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        .incorrect-answer {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
         /* Code block styling */
         pre {
             background-color: #f5f5f5;
@@ -96,24 +110,6 @@
             font-family: 'Courier New', Courier, monospace;
             color: #c7254e;
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 2em;
-            color: #333;
-        }
-
-        .header p {
-            font-size: 1em;
-            color: #666;
-            margin-top: -10px;
-        }
-
-
     </style>
 </head>
 <body>
@@ -126,7 +122,7 @@
         <h1>JavaScript Operators Quiz</h1>
 
         <!-- Multiple Choice Questions -->
-        <div class="question">
+        <div class="question" id="q1">
             <h3>1. What is the value of `x` after executing the following JavaScript code?</h3>
             <pre><code>let x = 3;<br>let y = ++x;</code></pre>
             <ul class="answers">
@@ -137,7 +133,7 @@
             </ul>
         </div>
 
-        <div class="question">
+        <div class="question" id="q2">
             <h3>2. What will be the value of `b` after the following code is executed?</h3>
             <pre><code>let a = 7;<br>let b = a++;</code></pre>
             <ul class="answers">
@@ -148,7 +144,7 @@
             </ul>
         </div>
 
-        <div class="question">
+        <div class="question" id="q3">
             <h3>3. Consider the following code:</h3>
             <pre><code>let num = 10;<br>let result = num-- + --num;</code></pre>
             <ul class="answers">
@@ -159,7 +155,7 @@
             </ul>
         </div>
 
-        <div class="question">
+        <div class="question" id="q4">
             <h3>4. Which of the following statements about the pre-increment operator in JavaScript is correct?</h3>
             <ul class="answers">
                 <li><input type="radio" name="q4" value="a"> a) It increases the variable's value before using it in the expression.</li>
@@ -169,7 +165,7 @@
             </ul>
         </div>
 
-        <div class="question">
+        <div class="question" id="q5">
             <h3>5. What will be the output of the following JavaScript code?</h3>
             <pre><code>let x = 5;<br>console.log(x--, x);</code></pre>
             <ul class="answers">
@@ -181,7 +177,7 @@
         </div>
 
         <!-- True or False -->
-        <div class="question">
+        <div class="question" id="q6">
             <h3>6. In JavaScript, the expression `x++` increases the value of `x` before it is used in an expression.</h3>
             <ul class="answers">
                 <li><input type="radio" name="q6" value="a"> a) True</li>
@@ -189,7 +185,7 @@
             </ul>
         </div>
 
-        <div class="question">
+        <div class="question" id="q7">
             <h3>7. The value of a variable is always incremented or decremented after it is used in an expression when the post-increment or post-decrement operator is used.</h3>
             <ul class="answers">
                 <li><input type="radio" name="q7" value="a"> a) True</li>
@@ -198,19 +194,19 @@
         </div>
 
         <!-- Fill in the Blanks with Text Input -->
-        <div class="question">
-            <h3>8. If `let x = 10;` and the statement `x += 5;` is executed, the new value of `x` will be ___ .</h3>
+        <div class="question" id="q8">
+            <h3>8. If `let x = 10;` and `x += 5;`, the value of `x` will be ___ .</h3>
             <input type="text" name="q8" placeholder="Enter your answer" style="width: 100%; padding: 10px; margin-top: 10px;">
         </div>
 
         <!-- Fill in the Blanks with Text Input -->
-        <div class="question">
-            <h3>9. If `let a = 5;` and the statement `a = a++ + ++a;` is executed, the final value of `a` will be ___ .</h3>
+        <div class="question" id="q9">
+            <h3>9. After executing `let a = 5; a = a++ + ++a;`, the value of `a` will be ___ .</h3>
             <input type="text" name="q9" placeholder="Enter your answer" style="width: 100%; padding: 10px; margin-top: 10px;">
         </div>
 
         <!-- Explanation Question with Text Area -->
-        <div class="question">
+        <div class="question" id="q10">
             <h3>10. What is the difference between the pre-increment (`++x`) and post-increment (`x++`) operators in JavaScript?</h3>
             <textarea name="q10" placeholder="Enter your explanation here" style="width: 100%; height: 100px; padding: 10px; margin-top: 10px;"></textarea>
         </div>
@@ -228,7 +224,7 @@
             const correctAnswers = {
                 q1: 'c', // 3. `let x = 3; let y = ++x;` -> `x = 4`
                 q2: 'b', // 4. `let a = 7; let b = a++;` -> `b = 7`
-                q3: 'c', // 5. `let num = 10; let result = num-- + --num;` -> `19`
+                q3: 'a', // 5. `let num = 10; let result = num-- + --num;` -> `19`
                 q4: 'a', // Pre-increment increases before using in expression
                 q5: 'a', // `let x = 5; console.log(x--, x);` -> `5 4`
                 q6: 'b', // False, `x++` increases after it is used in the expression
@@ -243,8 +239,29 @@
             // Check each question
             for (let key in correctAnswers) {
                 const userAnswer = document.querySelector(`[name="${key}"]:checked`)?.value || document.querySelector(`[name="${key}"]`)?.value.trim();
+                const questionDiv = document.getElementById(key);
+
+                // Highlight correct and incorrect answers
                 if (userAnswer == correctAnswers[key]) {
                     score++;
+                    questionDiv.classList.add('correct-answer');
+                } else {
+                    questionDiv.classList.add('incorrect-answer');
+                }
+
+                // Show correct answer for multiple choice
+                if (document.querySelector(`[name="${key}"]:checked`)) {
+                    const correctOption = document.querySelector(`[name="${key}"][value="${correctAnswers[key]}"]`);
+                    correctOption.parentNode.style.fontWeight = 'bold';
+                    correctOption.parentNode.style.color = 'green';
+                } else if (document.querySelector(`[name="${key}"]`)) {
+                    // Show correct answer for fill-in-the-blank or text area
+                    const inputField = document.querySelector(`[name="${key}"]`);
+                    if (inputField.value.trim() !== correctAnswers[key] && key !== 'q10') {
+                        inputField.style.borderColor = 'red';
+                        inputField.style.color = 'red';
+                        inputField.value = `Your answer: ${inputField.value.trim()} | Correct: ${correctAnswers[key]}`;
+                    }
                 }
             }
 
