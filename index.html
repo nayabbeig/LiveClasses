@@ -188,6 +188,40 @@
         }
 
 
+        /* Style for the WhatsApp link */
+        .whatsapp-link {
+            color: #25D366; /* WhatsApp green */
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for the YouTube link */
+        .youtube-link {
+            color: #FF0000; /* YouTube red */
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .youtube-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for icons */
+        .whatsapp-link i, .youtube-link i {
+            margin-right: 8px;
+            font-size: 20px; /* Adjust icon size as needed */
+        }
+
         @media print {
             body {
                 margin: 0;
@@ -327,6 +361,17 @@
     <!-- Score Card -->
     <div class="score-card" id="scoreCard">
         <h2>NB Live React Classes</h2>
+        <p>
+            <strong>Contact Us:</strong><br>
+            <a href="https://wa.me/7223944224" target="_blank" class="whatsapp-link">
+                <i class="fab fa-whatsapp"></i> +91 7223944224
+            </a>
+        </p>
+        <p>
+            <strong>Follow Us:</strong><br>
+            <a href="https://www.youtube.com/@codinghuman8185" target="_blank" class="youtube-link">
+                <i class="fab fa-youtube"></i> NB Live React Classes</a>
+        </p>
         <p class="name" id="scoreName"></p>
         <p id="scoreText"></p>
         <hr/>
