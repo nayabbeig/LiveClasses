@@ -96,6 +96,24 @@
             font-family: 'Courier New', Courier, monospace;
             color: #c7254e;
         }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 1em;
+            color: #666;
+            margin-top: -10px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -136,7 +154,7 @@
             <ul class="answers">
                 <li><input type="radio" name="q3" value="a"> a) `19`</li>
                 <li><input type="radio" name="q3" value="b"> b) `20`</li>
-                <li><input type="radio" name="q3" value="c"> c) `21`</li>
+                <li><input type="radio" name="q3" value="c"> c) `18`</li>
                 <li><input type="radio" name="q3" value="d"> d) `22`</li>
             </ul>
         </div>
@@ -210,7 +228,7 @@
             const correctAnswers = {
                 q1: 'c', // 3. `let x = 3; let y = ++x;` -> `x = 4`
                 q2: 'b', // 4. `let a = 7; let b = a++;` -> `b = 7`
-                q3: 'a', // 5. `let num = 10; let result = num-- + --num;` -> `19`
+                q3: 'c', // 5. `let num = 10; let result = num-- + --num;` -> `19`
                 q4: 'a', // Pre-increment increases before using in expression
                 q5: 'a', // `let x = 5; console.log(x--, x);` -> `5 4`
                 q6: 'b', // False, `x++` increases after it is used in the expression
